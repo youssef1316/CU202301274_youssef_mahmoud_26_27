@@ -1,0 +1,123 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.54cm]{geometry}
+\usepackage{booktabs,tabularx}
+\usepackage{pgfgantt}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+
+% =========================================================================
+% [TODO - TASK 1]: MACRO & METADATA CONFIGURATION
+% Architectural Why: Hardcoding metadata across multiple chapters, headers,
+% or declarations violates DRY principles and causes drift. Preamble macros
+% act as a single source of truth for your dissertation metadata.
+% Action: Replace the [TODO: ...] placeholders below with your actual details.
+% =========================================================================
+\newcommand{\studentname}{Youssef Mahmoud Taha}
+\newcommand{\studentid}{202301274}
+\newcommand{\projecttitle}{CodeWarden}
+\newcommand{\modulecode}{KH6002CMD}
+\newcommand{\moduletitle}{Project Discovery}
+
+% Document Header Styling
+\title{\vspace{-1.5cm}\textbf{\large \modulecode: \moduletitle}\\[0.3cm]
+	\Large \textbf{\projecttitle}\\[0.2cm]}
+\author{\textbf{\studentname} \quad (ID: \studentid)}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\noindent\rule{\textwidth}{0.8pt}
+	\vspace{-0.3cm} 
+	
+	% =========================================================================
+	% SECTION 3: 24-WEEK GANTT ROADMAP
+	% =========================================================================
+	\section{Project Timeline Schedule}
+	
+	
+	% =========================================================================
+	% [TODO - TASK 4]: INCOMPLETE PGFGANTT 24-WEEK SCHEDULE
+	% Architectural Why: pgfgantt renders tasks via coordinate units (weeks 1 to 24).
+	% \ganttgroup defines parent deliverables, \ganttbar defines task durations,
+	% and \ganttmilestone marks critical gating events (zero-duration checkpoints).
+	% Action:
+	% Complete WP2 (Weeks 5 to 8) and WP3 (Weeks 9 to 16) by replacing the
+	% [TODO: ...] task labels with your actual project deliverables and milestones.
+	% =========================================================================
+	% Week 1 = w/c 19 Oct 2026; week 24 = w/c 29 Mar 2027.
+	% Weeks 10-11 (21 Dec 2026 - 3 Jan 2027) are the winter break.
+	% M1-M10 are the milestones from the Security RAG design document.
+	% All durations are estimates.
+	\begin{figure}[H]
+		\centering
+		\begin{ganttchart}[
+			hgrid, vgrid,
+			x unit=0.44cm,
+			y unit title=0.45cm,
+			y unit chart=0.45cm,
+			title label font=\tiny\bfseries,
+			bar label font=\scriptsize,
+			group label font=\scriptsize\bfseries,
+			milestone label font=\scriptsize\itshape,
+			bar/.append style={fill=NavyBlue!70},
+			group/.append style={fill=Mahogany!80},
+			milestone/.append style={fill=Goldenrod!90}
+			]{1}{24}
+			\gantttitle{24-Week Final Year Project Timeline}{24} \\
+			\gantttitlelist{1,...,24}{1} \\
+			
+			% --- Work Package 1 (Completed Reference) ---
+			\ganttgroup{WP1: Research \& Ethics}{1}{4} \\
+			\ganttbar{Literature Review}{1}{3} \\
+			\ganttbar{Ethics Submission}{2}{4} \\
+			\ganttmilestone{Ethics Approval Gate}{4} \\
+			
+			% --- Work Package 2: Requirements & Design (Weeks 5-8) ---
+			% [TODO - TASK 4.1]: Replace [TODO: ...] labels with specific design tasks
+			\ganttgroup{WP2: Requirements \& Design}{5}{8} \\
+			\ganttbar{Design Doc: Hosting \& Agentic Scope}{5}{6} \\
+			\ganttmilestone{Model Hosting Decision}{6} \\
+			\ganttbar{Local Python RAG Demo}{7}{8} \\
+			\ganttmilestone{Design Baseline Gate}{8} \\
+			
+			% --- Work Package 3: Implementation (Weeks 9-16) ---
+			% [TODO - TASK 4.2]: Replace [TODO: ...] labels with specific development sprints
+			\ganttgroup{WP3: Core Implementation}{9}{16} \\
+			\ganttbar{M1 Foundation}{9}{9} \\
+			\ganttmilestone{DB \& Reranker Decision}{9} \\
+			\ganttbar[bar/.append style={fill=Gray!40}]{Winter Break}{10}{11} \\
+			\ganttbar{M2 Core Ingestion}{12}{13} \\
+			\ganttbar{M3 Retrieval v1}{14}{15} \\
+			\ganttbar{M4 Reranking \& Tuning}{16}{16} \\
+			\ganttmilestone{Embedding \& Retrieval Targets}{15} \\
+			
+			% --- Work Package 4: Integration & Reporting (Weeks 16-21) ---
+			\ganttgroup{WP4: Integration \& Reporting}{16}{21} \\
+			\ganttbar{M5 Scanner Import}{16}{17} \\
+			\ganttmilestone{Scan Location \& Repo Access}{17} \\
+			\ganttbar{M6 Code Index}{17}{18} \\
+			\ganttbar{M7 Phase 1 Report}{19}{20} \\
+			\ganttmilestone{Report Formats \& Log Retention}{20} \\
+			\ganttbar{M8 Remaining Sources}{21}{21} \\
+			
+			% --- Work Package 5: Phase 2 & Write-up (Weeks 22-24) ---
+			\ganttgroup{WP5: Phase 2 \& Write-up}{22}{24} \\
+			\ganttbar{M9 Phase 2 Gate}{22}{22} \\
+			\ganttmilestone{Phase 2 Go/No-Go}{22} \\
+			\ganttbar{M10 Phase 2}{23}{23} \\
+			\ganttbar{Dissertation Write-up}{22}{24}
+			
+		\end{ganttchart}
+		\caption{24-Week Project Roadmap with Gantt visualization (week 1 = 19 Oct 2026; durations are estimates)}
+		\label{fig:gantt_sandbox}
+	\end{figure}
+	
+	
+\end{document}
